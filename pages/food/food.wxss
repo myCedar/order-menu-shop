@@ -1,0 +1,386 @@
+/* pages/management/management.wxss */
+.pagecontent{
+  width: 100%;
+  height: 100%;
+}
+.swiper-tab{
+	display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background: #fff;
+}
+.swiper-tab-list{
+  flex:1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 16px;
+  border-bottom:1px solid transparent;
+}
+.on{ 
+  color:#f58220;
+  border-bottom:1px solid #f58220;
+}
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden; 
+}
+.swiper-box .classify{
+  height: calc(100% - 20rpx);
+  background-color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content:flex-start;
+  padding: 10rpx;
+}
+.classify-controll{
+  flex-shrink:0;
+  width: calc(100% - 40rpx);
+  height: 80rpx;
+  line-height: 80rpx;
+  margin:20rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  border:1px dashed #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.classify-controll>.input-item{
+  flex: 1;
+  height: 50rpx;
+  border: 1px solid #eee;
+  padding:0 10rpx;
+  font-size: 14px;
+}
+.classify-controll>.add-item{
+  flex: 0 0 100rpx;
+  margin-left: 20rpx;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  background-color: #f58220;
+  color: #fff;
+  font-size: 14px;
+  border:1px solid #f58220;
+}
+.classify-controll>.del-item{
+  flex: 0 0 100rpx;
+  margin-left: 20rpx;
+  background-color: #ef4136;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  border:1px solid #ef4136;
+}
+.classify-controll>.search-item{
+  flex: 0 0 100rpx;
+  margin-left: 20rpx;
+  background-color: #EEC900;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  border:1px solid #EEC900;
+}
+.classify-controll>.info{
+  flex: 1;
+  color: #f58220;
+  font-size: 14px;
+}
+.classify-controll>.class-info{
+  flex: 0 0 120rpx;
+  color: #f58220;
+  font-size: 14px;
+}
+.classify-controll>.class-info.not-active{
+  color: #454545;
+  font-size: 14px;
+}
+.classify-controll>.class-choose{
+  flex: 1;
+  text-align: right;
+  color: #f58220;
+  font-size: 14px;
+}
+.food-no{
+  margin: 20rpx 0;
+  color: #ef4136;
+  font-size: 16px;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 2px 2px #eee;
+  text-align: center;
+}
+.classify-item{
+  position: relative;
+  flex-shrink:0;
+  width: 215rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+  display: flex;
+  margin-bottom:20rpx;
+  margin-top:20rpx;  
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 14px;
+  color:#666;
+  background-color: #fff;
+  border:1px solid #aaa;
+  border-radius: 10rpx;
+}
+.classify-item.active{
+  color:#f58220;
+  border:1px solid #f58220;
+}
+.classify-item>.close{
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
+  width: 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-radius: 30rpx;
+  background-color: #ef4136;
+  color: #fff;
+  font-size: 14px;
+}
+.classify-item>.index{
+  position: absolute;
+  right: 5rpx;
+  bottom: 5rpx;
+  height: 26rpx;
+  line-height: 26rpx;
+  /* border-radius: 26rpx;
+  border: 1px solid #999; */
+  background-color: #fff;
+  color: #f58220;
+  font-size: 10px;
+}
+.menu-table{
+  background-color: #fff;
+  height: 100%;
+  position: relative;
+}
+.classify-controll>.pick{
+  flex: 1;
+  font-size: 14px;
+  color:#f58220;
+  height: 80rpx;
+}
+.picker{
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.menu-item{
+  padding: 20rpx;
+  box-sizing: border-box;
+  height:calc(100% - 240rpx);
+  overflow-y: auto;
+}
+.food-item{
+  margin-bottom: 20rpx;
+  border: 1px solid #eee;
+  box-shadow: 1px 1px 2px 2px #eee;
+  padding: 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.food-left,.food-right{
+  flex: 0 0 60rpx;
+  height: 200rpx;
+  line-height: 200rpx;
+  text-align: right;
+}
+.food-middle{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.food-middle>image{
+  flex-shrink:0;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 10rpx
+}
+.food-middle>.food-info{
+  flex-shrink:1;
+  height: 200rpx;
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: space-between;
+  color: #454545;
+  font-size: 14px;
+}
+.food-middle>.food-info .onsale{
+  display: inline-block;
+  position: absolute;
+  top: 50% ;
+  left: 0;
+  transform: translateY(-50%);
+  color:#fff;
+  background: #33a3dc;
+  font-size: 12px;
+  padding: 0 5rpx;
+  border-radius: 5rpx;
+  margin-right: 5px;
+}
+.food-middle>.food-info .notsale{
+  display: inline-block;
+  position: absolute;
+  top: 50% ;
+  left: 0;
+  transform: translateY(-50%);
+  color:#fff;
+  background: #b4534b;
+  font-size: 12px;
+  padding: 0 5rpx;
+  border-radius: 5rpx;
+}
+.food-middle>.food-info>text{
+  text-overflow: ellipsis;
+}
+.food-name{
+  flex: 0 0 100%;
+  font-size: 16px;
+  color:#666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  position: relative;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+  padding-left: 70rpx;
+}
+.food-price{
+  flex: 0 0 100%;
+  color: #f58220;
+  font-size: 16px;
+}
+.food-desc{
+  flex: 0 0 100%;
+  font-size: 12px;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+}
+.food-class{
+  flex: 0 0 100%;
+  color: #666
+}
+.food-fire{
+  color:#f00;
+}
+.food-sale{
+  flex: 0 0 100%;
+  color: #666;
+}
+/*
+* 筛选
+*/
+.menu-table>.choose-wrapper{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  overflow-y: auto
+}
+.choose-content{
+  background-color: #fff;
+  padding: 20rpx;
+}
+.choose-content .section{
+  margin-bottom: 10rpx;
+}
+.choose-content .section__title{
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 16px;
+  color: #f58220;
+}
+.choose-content label{
+  font-size: 14px;
+  display: inline-block;
+  color: #666;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.choose-content button{
+  display: inline-block;
+  padding:0 20rpx;
+  height: 60rpx;
+  margin-left: 20rpx;
+  line-height: 60rpx;
+  border:none;
+  background-color: #f58220;
+  font-size: 14px;
+  color: #fff
+}
+/*
+*输入容器
+*/
+.input-wrapper{
+  position:fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  z-index: 100;
+  background-color: rgba(0,0,0,.5);
+}
+.input-wrapper>.input-content{
+   position: absolute;
+   box-sizing: border-box;
+   bottom: 0;
+   background-color: #fff;
+   width: 100%;
+   height: 100rpx;
+   padding: 20rpx;
+}
+.input-wrapper>.input-content>input{
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #f58220;
+  border-radius: 20rpx;
+  height: 60rpx;
+  font-size: 16px;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  color: #454545;
+}

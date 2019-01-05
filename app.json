@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/food/food",
+    "pages/editFood/editFood",
+    "pages/addFood/addFood",
+    "pages/setting/setting",
+    "pages/table/table",
+    "pages/order/order",
+    "pages/phone/phone",
+    "pages/shopInfo/shopInfo",
+    "pages/evaluate/evaluate",
+    "pages/orderDetail/orderDetail",
+    "pages/shopPic/shopPic"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "CWSH",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "backgroundColor": "#f9f9f9",
+    "borderStyle": "#aaa",
+    "selectedColor": "#f58220",
+    "list": [
+      {
+        "pagePath": "pages/food/food",
+        "text": "菜 品",
+        "iconPath":"images/food.png",
+        "selectedIconPath":"images/food-red.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订 单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-red.png"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "text": "我 的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-red.png"
+      }
+    ]
+  }
+}

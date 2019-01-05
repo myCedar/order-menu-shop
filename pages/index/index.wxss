@@ -1,0 +1,46 @@
+/**index.wxss**/
+.welcome{
+  display: block;
+  height: 100%;
+  position: relative;
+  background-color: #fff
+}
+.title{
+  position: absolute;
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  background-color: #f58220;
+  color: #fff;
+  font-size: 60px;
+  line-height: 150rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  box-shadow: 2px 2px 5px 2px #ddd
+}
+.name01{
+  top: 40%;
+  left: 10%;
+  transform: translateY(-1000px)
+}
+.name02{
+  top: 40%;
+  left: 40%;
+  transform: translateY(-1000px)
+}
+.name03{
+  top: 40%;
+  left:70%;
+  transform: translateY(-1000px)
+}
+.welcome-name{
+  position: absolute;
+  display: inline-block;
+  width: 100%;
+  color: #f58220;
+  font-size: 20px;
+  line-height: 150rpx;
+  text-align: center;
+  top: 60%;
+  left: 0
+}

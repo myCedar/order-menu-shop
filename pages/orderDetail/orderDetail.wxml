@@ -1,0 +1,44 @@
+<!--pages/orderDetail/orderDetail.wxml-->
+<scroll-view class='order-detail wrapper' scroll-y='true'>
+  <view class='shop'>
+    <!-- <image class='shop-img' mode='aspectFill' src='https://www.cwscwh.xyz/{{headPictureUrl}}'></image>
+    <view class='shop-name'>{{store_name}}</view>
+    <view class='shop-table'>{{table_id==0?sort+'号':t_name}}</view> -->
+    <view class='shop-name'>{{table_id==0?sort+'号':t_name}}</view>
+  </view>
+  <view class='food'>
+    <view class='food-item food-head'>
+      <view class='food-name'>名称</view>
+      <view class='food-num'>数量</view>
+      <view class='food-price'>总价</view>
+    </view>
+    <view class='food-item' wx:for='{{foodSales}}' wx:key="food_id">
+      <view class='food-name'>{{item.food_name}}</view>
+      <view class='food-num'>x{{item.food_count}}</view>
+      <view class='food-price'>￥{{item.food_price*item.food_count}}</view>
+    </view>
+    <view class='food-item footer'>
+      <view class='food-name'>合计</view>
+      <view class='food-num'>x{{count}}</view>
+      <view class='food-price'>￥{{total}}</view>
+    </view>
+  </view>
+  <view class='order-info'>
+    <view class='order-num'>订单号：{{id}}</view>
+    <view class='order-time'>下单时间：{{create_time}}</view>
+    <view class='order-time'>联系电话：{{phone || '未填写'}}</view>
+    <view class='order-time'>订单备注：{{message || '未填写'}}</view>
+    <view class='order-time' wx:if="{{status==2}}">取消原因：{{reason || '未填写'}}</view>
+  </view>
+  <!-- <view class='order-btn' wx:if='{{status==0}}'>
+    <text class='cancel' data-id="{{id}}" bindtap='cancelOrder'>取消订单</text>
+    <text>去付款</text>
+  </view>
+  <view class='order-btn'wx:else>
+    <text bindtap='evaluate' wx:if='{{evaluate == 0}}'>去评价</text>
+    <text bindtap='evaluate' wx:else>查看评价</text>
+  </view> -->
+  <view class='order-btn' wx:if='{{status==1&&evaluate == 1}}'>
+    <text  data-id="{{id}}" bindtap='evaluate'>查看评价</text>
+  </view>
+</scroll-view>

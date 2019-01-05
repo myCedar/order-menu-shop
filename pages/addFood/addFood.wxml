@@ -1,0 +1,34 @@
+<!--pages/addFood/addFood.wxml-->
+<view class='add-food' >
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='food-item'>
+      <view class="food-title">类别:</view>
+      <picker class='food-pick' name='index' bindchange="changeType" range-key='classify_name'  value="{{checkIndex}}" range="{{foodClassifies}}">
+        <view class="picker">
+          {{foodClassifies[checkIndex].classify_name}}
+        </view>
+      </picker>
+    </view>
+    <view class="food-item">
+      <view class="food-title">名称:</view>
+      <input class="food-input" value='{{name}}' name='name' placeholder="请输入名称" />
+    </view>
+    <view class="food-item">
+      <view class="food-title">价格:</view>
+      <input class="food-input" type='digit'  value='{{price}}' name='price' placeholder="请输入价格" />
+    </view>
+    <view class="food-item">
+      <view class="food-title">描述:</view>
+      <input class="food-input" value='{{description}}' name='description' placeholder="请输入描述" />
+    </view>
+    <view class="food-item">
+      <view class="food-title">图片:</view>
+      <image bindtap='' src='{{imgSrc.tempFilePaths}}' bindtap='chooseImg' class='food-img' mode='aspectFill'></image>
+    </view>
+    <view class="food-btn">
+      <button formType="submit" class='submit'>提交</button>
+      <button formType="reset" class='reset'>重置</button>
+    </view>
+  </form>
+</view>
+

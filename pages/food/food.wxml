@@ -1,0 +1,107 @@
+<!--pages/management/management.wxml-->
+<view class='pagecontent {{showChoose?"bodyLock":""}}'>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">菜品分类</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">编辑菜品</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:calc(100% - 31px)" bindchange="bindChange">
+      <!-- 菜品分类 -->
+      <swiper-item>
+        <view class="classify">
+          <view class="classify-controll">
+            <text class="info" wx:if="{{!candel}}">提示:长按重命名</text>
+            <text class="info" wx:if="{{candel}}" >提示:连续点击两个标签更换双方排序</text>
+            <text class="add-item" wx:if="{{!candel}}" bindtap='addItem'>增加</text>
+            <text class="del-item" wx:if="{{!candel}}" bindtap='beginDeletItem'>编辑</text>
+            <text class="del-item" wx:if="{{candel}}" bindtap="saveChange" >完成</text>
+          </view>
+          <view class="classify-item {{index == position[0]?'active':''}}" data-index="{{index}}" data-classid="{{item.id}}" data-classify="{{item.classify_name}}"  bindtap='changePosition' bindlongpress='rename'  style="order:{{item.index}}" wx:for='{{foodClassifies}}' wx:key="{{item.id}}">
+            {{item.classify_name}}
+            <text class='close' data-classify="{{item.classify_name}}" data-index='{{item.id}}' catchtap='delClassify' wx:if="{{candel}}">X</text>
+            <text class="index">({{item.food_count}})</text>
+          </view>
+        </view>
+      </swiper-item>
+      <!-- 编辑菜品 -->
+      <swiper-item>
+          <view class='menu-table wrapper'>
+            <view class='choose-wrapper wrapper' bindtap='closeChoose'  wx:if="{{showChoose}}">
+              <view class='choose-content wrapper' catchtap='notcatch' >
+                <form bindsubmit="formSubmit" bindreset="formReset">
+                  <view class="section">
+                    <view class="section__title">当前搜索：{{name||"无限定词"}}</view>
+                  </view>
+                  <view class="section">
+                    <view class="section__title">请选择分类</view>
+                    <checkbox-group name="ids" bindchange='chooseClassify2'>
+                      <label bindtap='chooseClassify' data-id='{{item.id}}'  wx:for='{{classifies}}' wx:key='{{item.id}}'><checkbox color='#f58220' value="{{item.id}}"  checked='{{item.checked}}'/>{{item.name}}({{item.count}})</label>
+                    </checkbox-group>
+                  </view>
+                  <view class="section">
+                    <view class="section__title">请选择状态</view>
+                    <radio-group name="status">
+                      <label><radio checked='{{status == 2}}' color='#f58220' value="2"/>全部</label>
+                      <label><radio checked='{{status == 1}}' color='#f58220' value="1"/>在售</label>
+                      <label><radio checked='{{status == 0}}' color='#f58220' value="0"/>待售</label>
+                    </radio-group>
+                  </view>
+                  <view class="section" style='text-align: right;margin-bottom:10rpx;'>
+                    <button plain='true' hover-class='on-class' bindtap='closeChoose'>取消</button>
+                    <button plain='true' hover-class='on-class'	 formType="submit">完成</button>
+                    <button plain='true' hover-class='on-class'	 formType="reset">重置</button>
+                  </view>
+                </form>
+              </view>
+            </view>
+            <view class="classify-controll">
+              <text class='class-info {{sortType=="monthly_sale"?"":"not-active"}}'  data-type='monthly_sale' bindtap='sortFood'>销量 <text  class='{{monthlySaleBig?"sh-bottom":"sh-top"}}'></text></text>
+              <text class='class-info {{sortType=="praise_count"?"":"not-active"}}' data-type='praise_count' bindtap='sortFood'>点赞 <text  class='{{praiseCountBig?"sh-bottom":"sh-top"}}'></text></text>
+              <text class='class-info {{sortType=="price"?"":"not-active"}}' data-type='price' bindtap='sortFood'>价格 <text  class='{{priceBig?"sh-bottom":"sh-top"}}'></text></text>
+              <text class='class-choose' bindtap='openChoose'><text class='sh-manage'>筛选</text></text>
+              <!-- <picker class='pick' bindchange="bindPickerChange" range-key='name'  value="{{checkIndex}}" range="{{classifies}}">
+                <view class="picker">
+                  {{classifies[checkIndex].name}}
+                </view>
+              </picker> -->
+            </view>
+            <view class="classify-controll">
+              <checkbox value="" bindtap='allCheck' color='#f58220' checked='{{allChecked}}'/>
+              <text class="del-item" data-type='soldOut' bindtap='updateFoodStatus'>下架</text>     
+              <text class="add-item" data-type='putAway' bindtap='updateFoodStatus'>上架</text>
+              <text class="del-item" bindtap='deleteFoods'>删除</text>
+              <text class="add-item" bindtap='addFood'>添加</text>
+              <text class="search-item" bindtap='searchFoods'>搜索</text> 
+            </view>
+            <scroll-view class='menu-item' scroll-y bindscrolltolower='bindscrolltolower'>
+              <view class='food-no' wx:if="{{!foodList.length}}">未查询到相关数据！</view>
+              <checkbox-group bindchange="checkboxChange" wx:if="{{foodList.length}}">
+                <view class='food-item' wx:for='{{foodList}}' wx:key='{{item.id}}'  bindtap='modifyFood' data-id='{{item.id}}'>
+                  <view class='food-left'>
+                    <checkbox catchtap='checkFood' value="{{item.id}}" color='#f58220' data-id="{{item.id}}"  checked="{{item.checked}}"/>
+                  </view>
+                  <view class='food-middle'>
+                    <image mode='aspectFill' src='https://www.cwscwh.xyz/{{item.picture_url}}'></image>
+                    <view class='food-info'>
+                      <text class='food-name'><text class="{{item.status?'onsale':'notsale'}}">{{item.status?'在售':'待售'}}</text>{{item.f_name}}</text>
+                      <text class='food-price'>￥{{item.price}}</text>
+                      <text class='food-sale'> <text class='sh-fire food-fire'>{{item.praise_count}}</text> 月销量：{{item.monthly_sale}}</text>
+                      <text class='food-desc'>{{item.description}}</text>
+                      <text class='food-class'>分类:{{item.classify_name}}</text>
+                    </view>
+                  </view>
+                  <view class='food-right'>
+                    <text class='sh-right'></text>
+                  </view>
+                </view>
+              </checkbox-group>
+            </scroll-view>
+          </view>
+      </swiper-item>
+  </swiper>
+  <view class='input-wrapper wrapper' bindtap='closeInput' catchtouchmove='true' wx:if='{{inputWrapper}}'>
+    <view class='input-content'catchtap='true'  style="bottom:{{height}}px">
+      <input adjust-position='{{false}}' bindinput='changeInput' bindfocus="bindfocus"  focus='{{focus}}' value='{{changeInput}}' cursor-spacing='10' bindconfirm='confirmInput' type='text' confirm-type='done'></input>
+    </view>
+  </view>
+</view>
+

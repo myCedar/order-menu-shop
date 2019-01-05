@@ -1,0 +1,144 @@
+/* pages/order/order.wxss */
+#order{
+  width:100%;
+  height: 100%;
+}
+.search-order{
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #fff;
+  border-bottom:1px solid #eee; 
+}
+.search-order>input{
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 1px solid #eee;
+  border-radius: 60px;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  width: 90%;
+  margin: 0 auto;
+}
+.swiper-tab{
+	display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  background: #fff;
+}
+.swiper-tab-list{
+  flex:1;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 16px;
+  border-bottom:1px solid transparent;
+}
+.on{ 
+  color:#f58220;
+  border-bottom:1px solid #f58220;
+}
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden; 
+}
+.swiper-box .item-wrapper{
+  height: calc(100% - 20rpx);
+  background-color: #fff;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content:flex-start;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.no-data{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  font-size: 16px;
+  color: #f58220;
+  border: 1px dashed #f58220;
+  border-radius: 20rpx;
+}
+.order-items{
+  box-sizing: border-box;
+  padding: 20rpx;
+  border: 1px solid #eee;
+  box-shadow: 2px 2px 3px 2px #eee;
+  margin-bottom: 40rpx;
+}
+.order-shop{
+  box-sizing: border-box;
+  padding: 10rpx;
+  border-bottom: 1px solid #eee;
+  height: 120rpx;
+  font-size: 16px;
+  color: #454545;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content:flex-start;
+}
+.order-img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+}
+.order-shopname{
+  margin-left: 10rpx;
+  flex: 1
+}
+.order-price{
+  font-size: 16px;
+  text-align: right
+}
+.order-type{
+  width: 150rpx;
+  text-align: right
+}
+.order-detail{
+  box-sizing: border-box;
+  padding: 20rpx;
+  padding-bottom: 0;
+  font-size: 14px;
+  color: #666;
+  line-height: 80rpx;
+}
+.order-btn{
+  border-top: 1px solid #eee;
+  text-align: right;
+  height: 80rpx;
+}
+.price-num{
+  color: #f58220;
+  font-size: 20px;
+}
+.order-btn>text{
+  display: inline-block;
+  margin-top: 20rpx;
+  color: #fff;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 20rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  background-color: #f58220;
+  margin-left: 20rpx;
+}
+.order-btn>.cancel{
+  color: #454545;
+  background-color: #eee;
+}

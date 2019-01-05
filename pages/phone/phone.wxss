@@ -1,0 +1,85 @@
+/* pages/phone/phone.wxss */
+.phone{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.phone::before,.phone::after{
+  content: "";
+  display: table
+}
+.hasPhone{
+  margin: 20rpx auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px dashed #eee;
+  font-size: 16px;
+  color: #f58220
+}
+.phonename{
+  color: #454545
+}
+input{
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #eee;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #454545;
+}
+.input-wrapper{
+  width: 90%;
+  margin: 40rpx auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+.input-wrapper>.phone-input{
+  flex:0 0 100%;
+}
+.valide{
+  flex-grow:0;
+  flex-shrink:1;
+  flex-basis:330rpx;
+}
+.input-wrapper>.get{
+  flex-grow:0;
+  flex-shrink:1;
+  flex-basis:320rpx;
+  margin-left: 30rpx
+}
+.input-wrapper>.sure{
+  flex:0 0 100%;
+}
+text.btn{
+  display: block;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid transparent;
+  outline: none;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: #f58220
+}
+text.cansel{
+  display: block;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #999;
+  outline: none;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #999;
+  border-radius: 10rpx;
+  background-color: #fff;
+}

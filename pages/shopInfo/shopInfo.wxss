@@ -1,0 +1,61 @@
+/* pages/shopInfo/shopInfo.wxss */
+.shopInfo{
+  margin-top: 20rpx;
+}
+.change-modal{
+  position: fixed;
+  width: 100%;
+  top: 20rpx;
+  left:0;
+  right:0;
+  box-sizing: border-box;
+  padding:20rpx;
+  border: 1px solid #eee;
+  color:#454545;
+  font-size: 14px;
+  background-color: #fff;
+  z-index: 20;
+  height: 100%
+}
+.change-modal>.desc{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #454545;
+  font-size: 16px;
+}
+.change-modal>textarea{
+  padding: 20rpx;
+  width: 100%;
+  font-size: 16px;
+  line-height: 20px;
+  border: 1px dashed #eee;
+  min-height: 180rpx;
+  box-sizing: border-box;
+}
+.btn-group{
+  width: 100%;
+  height: 80rpx;
+  text-align: right;
+  margin-top:30rpx;
+}
+.btn-group>text{
+  height: 40rpx;
+  display: inline-block;
+  width: 80rpx;
+  margin-left: 20rpx;
+  padding: 10rpx;
+  line-height: 40rpx;
+  font-size:16px;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.primary{
+  background-color: #f58220;
+  color: #fff;
+  border:1px solid #f58220;
+}
+.warn{
+  background-color: #FFF;
+  border: 1px solid #eee;
+  color: #666;
+}

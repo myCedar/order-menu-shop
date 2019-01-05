@@ -1,0 +1,217 @@
+/**app.wxss**/
+page {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #f7f7f7; 
+}
+/*
+*下方不滚动
+*/
+.bodyLock{
+    top:0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    z-index: 0;
+}
+/*
+*容器
+*/
+.wrapper::before,.wrapper::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/*
+**菜单样式
+*/
+.app-menu-item{
+  position: relative;
+  background-color: #fff;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0 20rpx;
+  border:1px dashed #eee;
+  margin: 20rpx;
+  font-size: 16px;
+  color: #454545;
+}
+.app-menu-text{
+  flex: 0 0 150rpx;
+  display: flex;
+}
+.app-state{
+  flex:1;
+  text-align:right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #777;
+}
+.app-right{
+  flex:0 0 50rpx;
+  text-align: right;
+  color: #777;
+}
+.app-state>text{
+  flex: 1
+}
+.app-state>image{
+  width: 60rpx;
+  height: 60rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.app-pick{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+/*
+**字体图标
+*/
+@font-face {
+  font-family: 'cwsh';
+  src:  url('https://www.cwscwh.xyz/fonts/cwsh.eot?cnhma1');
+  src:  url('https://www.cwscwh.xyz/fonts/cwsh.eot?cnhma1#iefix') format('embedded-opentype'),
+    url('https://www.cwscwh.xyz/fonts/cwsh.ttf?cnhma1') format('truetype'),
+    url('https://www.cwscwh.xyz/fonts/cwsh.woff?cnhma1') format('woff'),
+    url('https://www.cwscwh.xyz/fonts/cwsh.svg?cnhma1#cwsh') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="sh-"], [class*=" sh-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'cwsh' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sh-bottom:before {
+  content: "\e921";
+}
+.sh-top:before {
+  content: "\e922";
+}
+.sh-right:before {
+  content: "\e920";
+}
+.sh-back:before {
+  content: "\e91c";
+}
+.sh-down:before {
+  content: "\e91d";
+}
+.sh-manage:before {
+  content: "\e91e";
+}
+.sh-up:before {
+  content: "\e91f";
+}
+.sh-car:before {
+  content: "\e900";
+}
+.sh-clock:before {
+  content: "\e901";
+}
+.sh-coupons:before {
+  content: "\e902";
+}
+.sh-download:before {
+  content: "\e903";
+}
+.sh-fire:before {
+  content: "\e904";
+}
+.sh-glass:before {
+  content: "\e905";
+}
+.sh-home:before {
+  content: "\e906";
+}
+.sh-horn:before {
+  content: "\e907";
+}
+.sh-key:before {
+  content: "\e908";
+}
+.sh-location:before {
+  content: "\e909";
+}
+.sh-lock:before {
+  content: "\e90a";
+}
+.sh-menu:before {
+  content: "\e90b";
+}
+.sh-Mobile:before {
+  content: "\e90c";
+}
+.sh-order:before {
+  content: "\e90d";
+}
+.sh-pen:before {
+  content: "\e90e";
+}
+.sh-pengyouquan:before {
+  content: "\e90f";
+}
+.sh-phone:before {
+  content: "\e910";
+}
+.sh-QQ:before {
+  content: "\e911";
+}
+.sh-query:before {
+  content: "\e912";
+}
+.sh-rmb:before {
+  content: "\e913";
+}
+.sh-search:before {
+  content: "\e914";
+}
+.sh-share:before {
+  content: "\e915";
+}
+.sh-shop:before {
+  content: "\e916";
+}
+.sh-shopcar:before {
+  content: "\e917";
+}
+.sh-star:before {
+  content: "\e918";
+}
+.sh-trash:before {
+  content: "\e919";
+}
+.sh-weibo:before {
+  content: "\e91a";
+}
+.sh-weixin:before {
+  content: "\e91b";
+}

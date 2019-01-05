@@ -1,0 +1,48 @@
+<!--pages/shopInfo/shopInfo.wxml-->
+<view class='shopInfo'>
+  <view class='app-menu-item'  data-type='region'>
+    <text class='app-menu-text'>地区</text>
+    <text class='app-state'>{{region ? region:"未完善"}}</text>
+    <text class='app-right sh-right'></text>
+    <picker class='app-pick' mode="region" bindchange="bindRegionChange" >
+      <view class="picker">cwsh</view>
+    </picker>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='headPictureUrl'>
+    <text class='app-menu-text'>头像</text>
+    <view class='app-state' wx:if="{{headPictureUrl}}">
+      <text></text>
+      <image  mode="aspectFill" src='{{"https://www.cwscwh.xyz/"+headPictureUrl}}' ></image>
+    </view> 
+    <text class='app-state' wx:else>未完善</text>
+    <text class='app-right sh-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='storeName'>
+    <text class='app-menu-text'>名称</text>
+    <text class='app-state'>{{storeName?storeName:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='description'>
+    <text class='app-menu-text'>简介</text>
+    <text class='app-state'>{{description?description:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='address'>
+    <text class='app-menu-text'>地址</text>
+    <text class='app-state'>{{address?address:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='storePictureUrls'>
+    <text class='app-menu-text'>图片</text>
+    <text class='app-state'>{{storePictureUrls?storePictureUrls:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+</view>
+<view class='change-modal' wx:if='{{showModal}}'>
+  <view class='desc'>请输入{{changeName}}:</view>
+  <textarea fixed bindinput='inputChange' value="{{oldContent}}" auto-focus focus/>
+  <view  class='btn-group'>
+    <text bindtap='canselText' class='warn'>取消</text>
+    <text bindtap='confirmText' class='primary'>确定</text>
+  </view>
+</view>

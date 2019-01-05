@@ -1,0 +1,43 @@
+<!--pages/editFood/editFood.wxml-->
+<view class='edit-food'>
+  <view class='app-menu-item'  data-type='region'>
+    <text class='app-menu-text'>分类</text>
+    <text class='app-state'>{{classify_name}}</text>
+    <text class='app-right sh-right'></text>
+    <picker class='app-pick' name='index' bindchange="changeType" range-key='classify_name'  value="{{checkIndex}}" range="{{foodClassifies}}">
+      <view class="picker">
+        {{foodClassifies[checkIndex].classify_name}}
+      </view>
+    </picker>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='f_name'>
+    <text class='app-menu-text'>名称</text>
+    <text class='app-state'>{{f_name?f_name:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modifyPic' data-type='picture_url'>
+    <text class='app-menu-text'>图片</text>
+    <view class='app-state' wx:if="{{picture_url}}">
+      <text></text>
+      <image  mode="aspectFill" src='{{picture_url}}' ></image>
+    </view> 
+    <text class='app-state' wx:else>未完善</text>
+    <text class='app-right sh-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='price'>
+    <text class='app-menu-text'>价格</text>
+    <text class='app-state'>{{price?"￥"+price:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+  <view class='app-menu-item' bindtap='modify' data-type='description'>
+    <text class='app-menu-text'>描述</text>
+    <text class='app-state'>{{description?description:"未完善"}}</text>
+    <text class='sh-right app-right'></text>
+  </view>
+</view>
+<view class='input-wrapper wrapper' bindtap='closeInput' catchtouchmove='nocatch' wx:if='{{inputWrapper}}'>
+  <view class='input-content'catchtap='nocatch'  style="bottom:{{height}}px">
+    <view wx:if="{{myType == 'digit'}}" class='sure-change'><text  bindtap='confirmInput'>确认</text></view>
+    <input adjust-position='{{false}}' bindinput='changeInput' bindblur='bindblur' bindfocus="bindfocus"  focus='{{focus}}' value='{{changeInput}}' cursor-spacing='10' bindconfirm='confirmInput' type='{{myType}}' confirm-type='done'></input>
+  </view>
+</view>

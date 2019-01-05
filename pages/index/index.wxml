@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<view class="welcome" bindtap='go'>
+  <view class='title name01' animation="{{animationData1}}">D</view>
+  <view class='title name02' animation="{{animationData2}}">B</view>
+  <view class='title name03' animation="{{animationData3}}">D</view>
+  <view class='welcome-name' animation="{{animationData4}}">欢迎来到点不点小程序</view>
+</view>

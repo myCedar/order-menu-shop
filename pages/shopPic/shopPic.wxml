@@ -1,0 +1,14 @@
+<!--pages/shopPic/shopPic.wxml-->
+<view class="shop-pic">
+  <view class='info'>温馨提示:长按可以预览图片。</view>
+  <view class='pic-list' bindlongpress='previewPic' wx:for="{{pics}}" bindtap='changeCheck' data-index="{{index}}" wx:key='{{item.pic}}'>
+    <image src="{{item.pic}}" mode="aspectFill"></image>
+    <view wx:if="{{item.checked}}" class="pic-choose"></view>
+  </view>
+  <view class='pic-list pic-change' bindtap='addPic'>
+    <image src="/images/add.png" mode="aspectFill"></image>
+  </view>
+  <view class='pic-list pic-change' bindtap='deletePic'>
+    <image src="/images/minite.png" mode="aspectFill"></image>
+  </view>
+</view>

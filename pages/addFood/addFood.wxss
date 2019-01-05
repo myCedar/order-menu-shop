@@ -1,0 +1,66 @@
+/* pages/addFood/addFood.wxss */
+.add-food{
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  font-size: 14px;
+  color: #454545;
+  background-color: #fff;
+}
+.add-food .food-item{
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+.food-title{
+  flex: 0 0 auto;
+  width: 100rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.food-pick,.food-input{
+  flex: 1;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+}
+.food-img{
+  width: 200rpx;
+  height: 200rpx;
+  border:1px solid #eee;
+}
+.food-btn{
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+.food-btn>button{
+  float: right;
+}
+.submit{
+  width: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  background-color: #f58220;
+  border: none;
+  font-size: 14px;
+  padding: 0 20rpx;
+  margin-left: 20rpx;
+}
+.reset{
+  width: 100rpx;
+  height: 60rpx;  
+  line-height: 60rpx;
+  color: #fff;
+  background-color: #ef4136;
+  border: none;
+  font-size: 14px;
+  padding: 0 20rpx;
+  margin-left: 20rpx;
+}

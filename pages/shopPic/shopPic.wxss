@@ -1,0 +1,54 @@
+/* pages/shopPic/shopPic.wxss */
+.shop-pic{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content:flex-start;
+  margin-top:20rpx;
+  padding: 10rpx;
+  min-height: 100%;
+  background-color: #fff
+}
+.info{
+  flex: 0 0 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color:#f58220;
+  padding-left: 20rpx;
+  font-size: 14px;
+  opacity: 0.6;
+}
+.shop-pic>.pic-list{
+  position: relative;
+  flex-shrink:0;
+  width: 220rpx;
+  height: 220rpx;
+  margin-left: 20rpx;
+  display: flex;
+  margin-bottom:20rpx;
+  margin-top:20rpx;  
+  justify-content: center;
+  align-items: center;
+}
+.pic-list>image{
+  width: 100%;
+  height: 100%;
+}
+.pic-change{
+  border:1px solid rgba(245,130,32,.6)
+}
+.pic-change>image{
+  width: 100rpx;
+  height: 100rpx;
+  opacity: 0.5
+}
+.pic-choose{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #f58220;
+}

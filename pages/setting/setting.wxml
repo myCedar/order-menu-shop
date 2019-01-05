@@ -1,0 +1,42 @@
+<!--pages/setting/setting.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+
+<view class='setting'>
+  <view class='personName'>
+    <open-data class='avatar' type='userAvatarUrl'></open-data>
+    <open-data class='nickName' type='userNickName'></open-data>
+  </view>
+  <view class='menu-wrapper'>
+    <view class='menu-title'>我的</view>
+    <view class='menu-item' data-gturl="/pages/phone/phone" bindtap='goTo'>
+      <text class='sh-Mobile menu-icon'></text>
+      <text class='menu-text'>绑定手机号</text>
+      <text class='state'>{{phone ? filter.hidePhone(phone):"未绑定"}}</text>
+      <text class='right sh-right'></text>
+    </view>
+    <view class='menu-item' data-gturl="/pages/shopInfo/shopInfo" bindtap='goTo'>
+      <text class='sh-shop menu-icon'></text>
+      <text class='menu-text'>门店信息</text>
+      <text class='state'>{{store?"已设置":"未完善"}}</text>
+      <text class='right sh-right'></text>
+    </view>
+    <view wx:if='{{approval.status == "2"}}' class='menu-item' data-gturl="/pages/table/table" bindtap='goTo'>
+      <text class='sh-manage menu-icon'></text>
+      <text class='menu-text'>桌号信息</text>
+      <text class='state'>{{table?table:"0"}}</text>
+      <text class='right sh-right'></text>
+    </view>
+    <view class='menu-item'  bindtap='approvalShop'>
+      <text class='sh-fire menu-icon'></text>
+      <text class='menu-text'>审批开店</text>
+      <text class='state' style="color:{{approval.status == 0?'#f58220':'#999'}}">{{approval.status == "0"?"发起审批":approval.status == "1"?"审批中":approval.status == "2"?"通过":approval.status == "3"?"已拒绝":"发起审批"}}</text>
+      <text class='sh-right right'></text>
+    </view>
+    <view class='menu-item'>
+      <text class='sh-clock menu-icon'></text>
+      <text class='menu-text'>营业状态</text>
+      <text class='state'></text>
+      <switch color='#f58220' checked='{{business}}' class='menu-switch' bindchange="switchChange"/>
+    </view>
+  </view>
+</view>

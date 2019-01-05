@@ -1,0 +1,33 @@
+<!--pages/evaluate/evaluate.wxml-->
+<scroll-view class='evaluate' scroll-y='true'>
+    <view class='order'>
+      <view class='order-num'>订单号：{{order_id}}</view>
+      <view class='order-status'>{{evaluate_type==0?'未评价':'已评价'}}</view>
+    </view>
+    <view class='foods'>
+      <view class='food-item item-head'>
+        <view class='food-name'>菜品名称</view>
+        <view class='food-evaluate'>好评</view>
+      </view>
+      <view class='food-item' wx:for='{{foodSales}}' wx:key='food_id'>
+        <view class='food-name'>{{item.food_name}}</view>
+        <switch data-id='{{item.food_id}}' color='#f58220' disabled="{{evaluate_type==1}}" class='food-evaluate' checked='{{item.praise == 1}}' bindchange="switchChange"/>
+      </view>
+      <view class='food-item item-all'>
+        <view class='food-name'>总评</view>
+        <switch color='#f58220' data-id='order_id' disabled="{{evaluate_type==1}}"  class='food-evaluate' checked="{{evaluate_type == 1}}" bindchange="switchChange"/>
+      </view>
+    </view>
+    <view class='order-evaluate'>
+      <view class='order-title'>图片</view>
+      <view class='pic-list'>
+          <image mode='aspectFill' wx:for="{{pictures}}" wx:key='index' class='pic-img' src='{{pictures[index]}}'></image>
+      </view>
+    </view>
+    <view class='order-evaluate'>
+      <view class='order-title'>订单评价:</view>
+      <view class='evaluate-text'>
+        {{message}}
+      </view>
+    </view>
+</scroll-view>

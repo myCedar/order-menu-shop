@@ -1,0 +1,72 @@
+<!--pages/order/order.wxml-->
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<view id='order'>
+  <view class="search-order">
+    <input type='text' confirm-type='search' bindconfirm='searchOrder' placeholder='请输入订单号查询'></input>
+  </view>
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">已付款</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">已取消</view>
+  </view>
+  <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:calc(100% - 71px)" bindchange="bindChange">
+      <!-- 已付款 -->
+      <swiper-item>
+        <scroll-view class='item-wrapper wrapper' scroll-y='true' bindscrolltolower='hasPayToBottom'>
+          <view class='order-items' wx:for='{{haspayList}}' data-id="{{item.id}}" bindtap='goToDetail' wx:key='id'>
+            <view class='order-shop'>
+              <!-- <image mode='aspectFill' src='https://www.cwscwh.xyz/{{item.headPictureUrl}}' class='order-img'></image>
+              <view class='order-shopname'>{{item.store_name}}</view> -->
+              <view class='order-shopname'>{{item.table_id==0?item.sort+'号':item.t_name}}</view>
+              <!-- <view class='order-type'>{{item.table_id==0?item.sort+'号':item.t_name}}</view> -->
+            </view>
+            <view class='order-detail'>
+              <view class='order-id'>订单号：<text catchtap='noDo'>{{item.id}}</text></view>
+              <view class='order-time'>下单时间：{{item.create_time}}</view>
+              <!-- <view class='order-phone'>
+                联系电话：<text>1313131313</text>
+              </view> -->
+              <view class='order-price'>合计：<text class='price-num'>{{item.total_price}}</text>元</view>
+              <!-- <view class='order-btn' catchtap='noDo'>
+                <text class='cancel' data-id="{{item.id}}" bindtap='cancelOrder'>取消订单</text>
+                <text data-id="{{item.id}}" bindtap='goPay'>去付款</text>
+                <text data-id="{{item.id}}" bindtap='evaluate' >查看评价</text>
+              </view> -->
+            </view>
+          </view>
+          <view class='no-data' wx:if='{{haspayData}}'>
+            我也是有底线的！
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 已取消 -->
+      <swiper-item>
+        <scroll-view class='item-wrapper wrapper' scroll-y='true' bindscrolltolower='hasCancelToBottom'>
+          <view class='order-items' data-id="{{item.id}}" bindtap='goToDetail' wx:for='{{hasCancelList}}' wx:key='id'>
+            <view class='order-shop'>
+              <!-- <image mode='aspectFill' src='https://www.cwscwh.xyz/{{item.headPictureUrl}}' class='order-img'></image> -->
+              <view class='order-shopname'>{{item.table_id==0?item.sort+'号':item.t_name}}</view>
+              <!-- <view class='order-type'>{{item.table_id==0?item.sort+'号':item.t_name}}</view> -->
+            </view>
+            <view class='order-detail'>
+              <view class='order-id'>订单号：<text catchtap='noDo'>{{item.id}}</text></view>
+              <view class='order-time'>下单时间：{{item.create_time}}</view>
+              <view class='order-time'>取消原因：{{item.reason}}</view>
+              <!-- <view class='order-phone'>
+                联系电话：<text>1313131313</text>
+              </view> -->
+              <!-- <view class='order-price'>合计：<text class='price-num'>{{item.total_price}}</text>元</view> -->
+              <!-- <view class='order-btn' catchtap='noDo'>
+                <text data-id="{{item.id}}" bindtap='evaluate' wx:if='{{item.evaluate == 0}}'>去评价</text>
+                <text data-id="{{item.id}}" bindtap='evaluate' >查看评价</text>
+              </view> -->
+            </view>
+          </view>
+          <view class='no-data' wx:if='{{hasCancelData}}'>
+            我也是有底线的！
+          </view>
+        </scroll-view>
+      </swiper-item>
+  </swiper>
+</view>
+
+

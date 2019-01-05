@@ -1,0 +1,14 @@
+<!--pages/table/table.wxml-->
+<view class='set-table'>
+  <view class='app-menu-item' bindtap='modify' data-type='{{item.id}}' wx:for='{{tableList}}' wx:key='{{item.id}}'>
+    <text class='app-menu-text'>{{item.t_name}}</text>
+    <text class='app-state'>修改</text>
+    <text class='sh-right app-right'></text>
+  </view>
+</view>
+<view class='input-wrapper wrapper' bindtap='closeInput' catchtouchmove='true' wx:if='{{inputWrapper}}'>
+  <view class='input-content'catchtap='true'  style="bottom:{{height}}px">
+    <view wx:if="{{myType == 'digit'}}" class='sure-change'><text  bindtap='confirmInput'>确认</text></view>
+    <input adjust-position='{{false}}' bindinput='changeInput' bindblur='bindblur' bindfocus="bindfocus"  focus='{{focus}}' value='{{changeInput}}' cursor-spacing='10' bindconfirm='confirmInput' type='{{myType}}' confirm-type='done'></input>
+  </view>
+</view>
